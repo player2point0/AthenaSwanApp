@@ -1,8 +1,16 @@
-import React from "react";
+import { FC } from "react";
 import styles from "./ScrollButton.module.css";
 
-const ScrollButton = () => {
-	return <button className={styles.scrollButton}>scroll</button>;
+type Props = {
+	onClick: () => void;
+};
+
+const ScrollButton: FC<Props> = ({ onClick }) => {
+	return (
+		<button className={styles.scrollButton} onClick={onClick}>
+			scroll
+		</button>
+	);
 };
 
 export default ScrollButton;
