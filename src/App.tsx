@@ -21,7 +21,7 @@ const App = () => {
 
 	useLayoutEffect(() => {
 		function updatePosition() {
-			setScrollPosition(window.pageYOffset);
+			setScrollPosition(Math.round(window.pageYOffset));
 		}
 		window.addEventListener("scroll", updatePosition);
 		updatePosition();
@@ -42,8 +42,19 @@ const App = () => {
 			return section.current?.offsetTop > scrollPosition;
 		});
 
+		console.log(scrollPosition);
+		console.log(nextSections);
+
 		if (nextSections.length >= 1) {
 			nextSections[0].current?.scrollIntoView({ behavior: "smooth" });
+		} else {
+			// last section
+			console.log("last");
+			const lastIndex = sortedSections.length - 1;
+			sortedSections[lastIndex].current?.scrollIntoView({
+				behavior: "smooth",
+				block: "end",
+			});
 		}
 	};
 
