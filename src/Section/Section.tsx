@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Section: FC<Props> = forwardRef((props, ref) => {
-	const { red } = props;
+	const { red, children } = props;
 	const backgroundColor = red ? "red" : "white";
 
 	return (
@@ -15,21 +15,10 @@ const Section: FC<Props> = forwardRef((props, ref) => {
 			ref={ref}
 			className={styles.sectionBody}
 			style={{ backgroundColor: backgroundColor }}
-		></section>
+		>
+			{children}
+		</section>
 	);
 });
-
-// const Section: FC<Props> = (props) => {
-// 	const { red } = props;
-// 	const backgroundColor = red ? "red" : "white";
-
-// 	return forwardRef((_props, ref) => (
-// 		<section
-// 			ref={ref}
-// 			className={styles.sectionBody}
-// 			style={{ backgroundColor: backgroundColor }}
-// 		></section>
-// 	));
-// };
 
 export default Section;

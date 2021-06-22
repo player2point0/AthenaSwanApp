@@ -1,6 +1,8 @@
+import IframeResizer from "iframe-resizer-react";
 import { useLayoutEffect, useState, useRef } from "react";
 import ScrollButton from "./ScrollButton";
 import Section from "./Section";
+import SurveySection from "./SurveySection";
 
 // scroll options
 // 1. store a ref to the next section and a button that will scroll to the next in each section
@@ -42,14 +44,10 @@ const App = () => {
 			return section.current?.offsetTop > scrollPosition;
 		});
 
-		console.log(scrollPosition);
-		console.log(nextSections);
-
 		if (nextSections.length >= 1) {
 			nextSections[0].current?.scrollIntoView({ behavior: "smooth" });
 		} else {
 			// last section
-			console.log("last");
 			const lastIndex = sortedSections.length - 1;
 			sortedSections[lastIndex].current?.scrollIntoView({
 				behavior: "smooth",
@@ -64,7 +62,13 @@ const App = () => {
 			<Section ref={landingSectionRef} />
 			<Section red ref={introSectionRef} />
 			<Section ref={reportSectionRef} />
-			<Section red ref={surveySectionRef} />
+			<Section red ref={surveySectionRef}>
+				<IframeResizer
+					log
+					src="https://docs.google.com/forms/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/viewform?embedded=true"
+					style={{ height: "100vh", width: "50%" }}
+				/>
+			</Section>
 		</div>
 	);
 };
