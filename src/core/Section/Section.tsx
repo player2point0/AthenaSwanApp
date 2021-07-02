@@ -1,6 +1,8 @@
 import { FC, forwardRef, Ref } from "react";
 import styles from "./Section.module.css";
 
+// todo don't think this provides much value
+
 type Props = {
 	red?: boolean;
 	ref: Ref<HTMLBodyElement>;

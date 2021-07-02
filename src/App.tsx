@@ -1,12 +1,13 @@
-import IframeResizer from "iframe-resizer-react";
+// import IframeResizer from "iframe-resizer-react";
 import { useLayoutEffect, useState, useRef } from "react";
-import ScrollButton from "./ScrollButton";
-import Section from "./Section";
-import SurveySection from "./SurveySection";
+import ScrollButton from "./core/ScrollButton";
+import Section from "./core/Section";
 
 // scroll options
 // 1. store a ref to the next section and a button that will scroll to the next in each section
 // 2. keep trap of the scroll position and have a single button that will scroll to what it thinks is the next
+
+// have each component pass up refs
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
@@ -56,19 +57,20 @@ const App = () => {
 		}
 	};
 
+	// for mobile support split the double columnn into single
+
 	return (
 		<div>
 			<ScrollButton onClick={scrollToNextSection} />
 			<Section ref={landingSectionRef} />
 			<Section red ref={introSectionRef} />
-			<Section ref={reportSectionRef} />
-			<Section red ref={surveySectionRef}>
+			{/* <Section red ref={surveySectionRef}>
 				<IframeResizer
 					log
 					src="https://docs.google.com/forms/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/viewform?embedded=true"
 					style={{ height: "100vh", width: "50%" }}
 				/>
-			</Section>
+			</Section> */}
 		</div>
 	);
 };
