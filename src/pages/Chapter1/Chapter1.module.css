@@ -1,0 +1,16 @@
+.title,
+.teamImage {
+	box-sizing: border-box;
+	border: 1px solid black;
+	height: 100vh;
+}
+
+.doubleColumn {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.singleColumn {
+	display: grid;
+	grid-template-columns: 1fr;
+}

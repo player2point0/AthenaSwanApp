@@ -1,38 +1,39 @@
 // import IframeResizer from "iframe-resizer-react";
-import { useLayoutEffect, useState, useRef } from "react";
+import { RefObject, useEffect, useState } from "react";
 import ScrollButton from "./core/ScrollButton";
-import Section from "./core/Section";
-
-// scroll options
-// 1. store a ref to the next section and a button that will scroll to the next in each section
-// 2. keep trap of the scroll position and have a single button that will scroll to what it thinks is the next
-
-// have each component pass up refs
+import Chapter1 from "./pages/Chapter1";
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
-	const landingSectionRef = useRef<HTMLBodyElement>(null);
-	const introSectionRef = useRef<HTMLBodyElement>(null);
-	const reportSectionRef = useRef<HTMLBodyElement>(null);
-	const surveySectionRef = useRef<HTMLBodyElement>(null);
-	const sectionRefs = [
-		landingSectionRef,
-		introSectionRef,
-		reportSectionRef,
-		surveySectionRef,
-	];
+	const [width, setWidth] = useState<number>(window.innerWidth);
+	const isMobile = width <= 768;
 
-	useLayoutEffect(() => {
-		function updatePosition() {
-			setScrollPosition(Math.round(window.pageYOffset));
-		}
+	const [sectionRefs, setSectionRefs] = useState(
+		new Map<string, RefObject<HTMLBodyElement>>()
+	);
+
+	function updatePosition() {
+		setScrollPosition(Math.round(window.pageYOffset));
+	}
+
+	function handleWindowSizeChange() {
+		setWidth(window.innerWidth);
+	}
+
+	useEffect(() => {
 		window.addEventListener("scroll", updatePosition);
-		updatePosition();
 		return () => window.removeEventListener("scroll", updatePosition);
+	}, []);
+	useEffect(() => {
+		window.addEventListener("resize", handleWindowSizeChange);
+		return () => {
+			window.removeEventListener("resize", handleWindowSizeChange);
+		};
 	}, []);
 
 	const scrollToNextSection = () => {
-		const sortedSections = sectionRefs.sort((a, b) => {
+		const refs = Array.from(sectionRefs.values());
+		const sortedSections = refs.sort((a, b) => {
 			if (!a.current || !b.current) {
 				return 0;
 			}
@@ -44,7 +45,6 @@ const App = () => {
 			}
 			return section.current?.offsetTop > scrollPosition;
 		});
-
 		if (nextSections.length >= 1) {
 			nextSections[0].current?.scrollIntoView({ behavior: "smooth" });
 		} else {
@@ -57,13 +57,33 @@ const App = () => {
 		}
 	};
 
-	// for mobile support split the double columnn into single
+	const addRefsToParent = (
+		name: string,
+		refs: Array<RefObject<HTMLBodyElement>>
+	) => {
+		setSectionRefs((currentRefs) => {
+			const nonNullRefs = refs.filter(
+				(ref) => ref !== null && ref.current !== null
+			);
+			for (let i = 0; i < nonNullRefs.length; i++) {
+				currentRefs.set(`${name}-${i}`, nonNullRefs[i]);
+			}
+
+			return currentRefs;
+		});
+	};
 
 	return (
 		<div>
 			<ScrollButton onClick={scrollToNextSection} />
-			<Section ref={landingSectionRef} />
-			<Section red ref={introSectionRef} />
+			<Chapter1
+				isMobile={isMobile}
+				addRefsToParent={(refs) => addRefsToParent("chapter1", refs)}
+			/>
+			<Chapter1
+				isMobile={isMobile}
+				addRefsToParent={(refs) => addRefsToParent("chapter2", refs)}
+			/>
 			{/* <Section red ref={surveySectionRef}>
 				<IframeResizer
 					log
