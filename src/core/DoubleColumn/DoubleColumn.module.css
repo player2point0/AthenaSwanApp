@@ -7,3 +7,9 @@
 	display: grid;
 	grid-template-columns: 1fr;
 }
+
+.leftElement,
+.rightElement {
+	box-sizing: border-box;
+	height: 100vh;
+}

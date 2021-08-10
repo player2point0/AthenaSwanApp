@@ -19,6 +19,12 @@ export const DoubleColumn: FC<Props> = ({
 }) => {
 	const mainColumnRef = useRef<HTMLBodyElement>(null);
 	const secondaryColumnRef = useRef<HTMLBodyElement>(null);
+	const wrappedLeftElement = (
+		<div className={styles.leftElement}>{leftElement}</div>
+	);
+	const wrappedRightElement = (
+		<div className={styles.leftElement}>{rightElement}</div>
+	);
 
 	useEffect(() => {
 		addRefsToParent([mainColumnRef, secondaryColumnRef]);
@@ -27,16 +33,16 @@ export const DoubleColumn: FC<Props> = ({
 	if (isMobile) {
 		return (
 			<div className={styles.singleColumn}>
-				<section ref={mainColumnRef}>{leftElement}</section>
-				<section ref={secondaryColumnRef}>{rightElement}</section>
+				<section ref={mainColumnRef}>{wrappedLeftElement}</section>
+				<section ref={secondaryColumnRef}>{wrappedRightElement}</section>
 			</div>
 		);
 	}
 
 	return (
 		<section ref={mainColumnRef} className={styles.doubleColumn}>
-			{leftElement}
-			{rightElement}
+			{wrappedLeftElement}
+			{wrappedRightElement}
 		</section>
 	);
 };
