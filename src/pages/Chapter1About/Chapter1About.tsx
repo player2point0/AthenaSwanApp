@@ -7,6 +7,7 @@ import {
 import QUBLogo from "./qub.jpg";
 import UKRILogo from "./ukri.jpg";
 import TextBox from "../../core/TextBox";
+import PictureFrame from "../../core/PictureFrame";
 
 //TODO source proper images
 const Chapter1About: FC<DoubleColumnProps> = ({
@@ -15,8 +16,8 @@ const Chapter1About: FC<DoubleColumnProps> = ({
 }) => {
 	const logos = (
 		<div className={styles.logo}>
-			<img src={QUBLogo} alt="QUB logo" />
-			<img src={UKRILogo} alt="UKRI logo" />
+			<PictureFrame imgSrc={QUBLogo} altText={"QUB logo"} />
+			<PictureFrame imgSrc={UKRILogo} altText={"UKRI logo"} />
 		</div>
 	);
 	const aboutText = (
