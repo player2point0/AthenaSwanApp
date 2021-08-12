@@ -1,8 +1,9 @@
 // import IframeResizer from "iframe-resizer-react";
 import { RefObject, useEffect, useState } from "react";
 import ScrollButton from "./core/ScrollButton";
-import Chapter1Title from "./pages/Chapter1Title";
-import Chapter1About from "./pages/Chapter1About";
+// import Chapter1Title from "./pages/Chapter1Title";
+// import Chapter1About from "./pages/Chapter1About";
+import Chapter1 from "./pages/Chapter1";
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
@@ -75,18 +76,13 @@ const App = () => {
 	};
 
 	// TODO create a basic section comp for the text/video/survey
+	// TODO possibly using the refs maybe programmatically set the background color
 
 	return (
 		<div>
 			<ScrollButton onClick={scrollToNextSection} />
-			<Chapter1Title
-				isMobile={isMobile}
-				addRefsToParent={(refs) => addRefsToParent("chapter1", refs)}
-			/>
-			<Chapter1About
-				isMobile={isMobile}
-				addRefsToParent={(refs) => addRefsToParent("chapter2", refs)}
-			/>
+			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
+
 			{/* <Section red ref={surveySectionRef}>
 				<IframeResizer
 					log

@@ -1,6 +1,7 @@
 import { FC, ReactElement, RefObject, useEffect, useRef } from "react";
 import styles from "./DoubleColumn.module.css";
 
+// TODO probably don't need this to be public
 export type DoubleColumnProps = {
 	addRefsToParent: (refs: Array<RefObject<HTMLBodyElement>>) => void;
 	isMobile: boolean;
