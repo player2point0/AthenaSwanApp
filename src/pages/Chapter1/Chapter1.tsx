@@ -1,5 +1,5 @@
 import { FC, RefObject } from "react";
-import { DoubleColumn } from "../../core/DoubleColumn/DoubleColumn";
+import DoubleColumn from "../../core/DoubleColumn";
 import PictureFrame from "../../core/PictureFrame";
 import TextBox from "../../core/TextBox";
 import Title from "../../core/Title";

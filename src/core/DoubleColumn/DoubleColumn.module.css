@@ -1,15 +1,16 @@
 .doubleColumn {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	border-bottom: 2px solid black;
 }
 
 .singleColumn {
 	display: grid;
 	grid-template-columns: 1fr;
+	border-bottom: 2px solid black;
 }
 
 .leftElement,
 .rightElement {
-	box-sizing: border-box;
 	height: 100vh;
 }

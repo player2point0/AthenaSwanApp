@@ -1,3 +1,10 @@
 .titleText {
-	border: 1px solid black;
+	border: 5px solid black;
+	box-shadow: var(--drop-shadow);
+	width: fit-content;
+	margin: 100px;
+	padding: 50px;
+	font-family: var(--main-font-family);
+	font-weight: 700;
+	font-size: 3.25em;
 }

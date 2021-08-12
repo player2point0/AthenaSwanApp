@@ -1,18 +1,14 @@
 import { FC, ReactElement, RefObject, useEffect, useRef } from "react";
 import styles from "./DoubleColumn.module.css";
 
-// TODO probably don't need this to be public
-export type DoubleColumnProps = {
+type Props = {
 	addRefsToParent: (refs: Array<RefObject<HTMLBodyElement>>) => void;
 	isMobile: boolean;
-};
-
-interface Props extends DoubleColumnProps {
 	leftElement: ReactElement;
 	rightElement: ReactElement;
-}
+};
 
-export const DoubleColumn: FC<Props> = ({
+const DoubleColumn: FC<Props> = ({
 	addRefsToParent,
 	isMobile,
 	leftElement,
@@ -47,3 +43,5 @@ export const DoubleColumn: FC<Props> = ({
 		</section>
 	);
 };
+
+export default DoubleColumn;

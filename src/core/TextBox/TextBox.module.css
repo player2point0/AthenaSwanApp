@@ -1,3 +1,10 @@
 .TextBoxText {
-	border: 1px solid black;
+	border: 5px solid black;
+	box-shadow: var(--drop-shadow);
+	width: fit-content;
+	margin: 100px;
+	padding: 20px;
+	font-family: var(--main-font-family);
+	font-weight: 400;
+	font-size: 2em;
 }
