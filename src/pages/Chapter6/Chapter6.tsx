@@ -4,6 +4,7 @@ import SingleColumn from "../../core/components/SingleColumn";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import { ChapterProps } from "../../core/types";
+import IframeResizer from "iframe-resizer-react";
 
 const Chapter6: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 	const title = <Title text={"CHAPTER 6:  Questionnaire "} />;
@@ -38,7 +39,11 @@ const Chapter6: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 					addRefsToParent("chapter6-questionnaire", refs)
 				}
 			>
-				<div>questionnaire</div>
+				<IframeResizer
+					log
+					src="https://docs.google.com/forms/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/viewform?embedded=true"
+					style={{ height: "100vh", width: "50%" }}
+				/>
 			</SingleColumn>
 		</>
 	);

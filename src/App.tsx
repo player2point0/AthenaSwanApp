@@ -1,4 +1,3 @@
-// import IframeResizer from "iframe-resizer-react";
 import { RefObject, useEffect, useState } from "react";
 import ScrollButton from "./core/components/ScrollButton";
 import { useScreenWidth } from "./core/hooks";
@@ -8,6 +7,7 @@ import Chapter3 from "./pages/Chapter3";
 import Chapter4 from "./pages/Chapter4";
 import Chapter5 from "./pages/Chapter5";
 import Chapter6 from "./pages/Chapter6";
+import Intro from "./pages/Intro";
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
@@ -73,23 +73,16 @@ const App = () => {
 	// maybe wrap all components in some kind of dynamic style applier
 
 	return (
-		<div>
+		<>
 			<ScrollButton onClick={scrollToNextSection} />
+			<Intro isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter2 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter3 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter4 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter5 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter6 isMobile={isMobile} addRefsToParent={addRefsToParent} />
-
-			{/* <Section red ref={surveySectionRef}>
-				<IframeResizer
-					log
-					src="https://docs.google.com/forms/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/viewform?embedded=true"
-					style={{ height: "100vh", width: "50%" }}
-				/>
-			</Section> */}
-		</div>
+		</>
 	);
 };
 
