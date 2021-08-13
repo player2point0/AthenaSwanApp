@@ -2,7 +2,8 @@
 	border: 5px solid black;
 	box-shadow: var(--drop-shadow);
 	width: fit-content;
-	margin: 100px;
+	height: fit-content;
+	margin: 50px;
 	padding: 20px;
 	font-family: var(--main-font-family);
 	font-weight: 400;

@@ -1,0 +1,6 @@
+.singleColumn {
+	display: grid;
+	grid-template-columns: 1fr;
+	border-bottom: 2px solid black;
+	height: 100vh;
+}

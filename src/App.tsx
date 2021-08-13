@@ -4,6 +4,7 @@ import ScrollButton from "./core/ScrollButton";
 // import Chapter1Title from "./pages/Chapter1Title";
 // import Chapter1About from "./pages/Chapter1About";
 import Chapter1 from "./pages/Chapter1";
+import Chapter2 from "./pages/Chapter2";
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
@@ -82,6 +83,7 @@ const App = () => {
 		<div>
 			<ScrollButton onClick={scrollToNextSection} />
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
+			<Chapter2 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 
 			{/* <Section red ref={surveySectionRef}>
 				<IframeResizer
