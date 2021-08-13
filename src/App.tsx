@@ -19,27 +19,29 @@ const App = () => {
 	);
 
 	const scrollToNextSection = () => {
+		//getBoundingClientRect is relative to viewport
 		const refs = Array.from(sectionRefs.values());
-		const sortedSections = refs.sort((a, b) => {
-			if (!a.current || !b.current) {
-				return 0;
-			}
-			return a.current?.offsetTop - b.current?.offsetTop;
-		});
-		const nextSections = sortedSections.filter((section) => {
+
+		const sectionsAfterCurrent = refs.filter((section) => {
 			if (!section.current) {
 				return false;
 			}
-			return section.current?.offsetTop > scrollPosition;
+
+			return Math.round(section.current?.getBoundingClientRect().y) > 0;
 		});
-		if (nextSections.length >= 1) {
-			nextSections[0].current?.scrollIntoView({ behavior: "smooth" });
-		} else {
-			// last section
-			const lastIndex = sortedSections.length - 1;
-			sortedSections[lastIndex].current?.scrollIntoView({
+		const sortedSectionsAfterCurrent = sectionsAfterCurrent.sort((a, b) => {
+			if (!a.current || !b.current) {
+				return 0;
+			}
+			return (
+				a.current?.getBoundingClientRect().y -
+				b.current?.getBoundingClientRect().y
+			);
+		});
+
+		if (sortedSectionsAfterCurrent.length >= 1) {
+			sortedSectionsAfterCurrent[0].current?.scrollIntoView({
 				behavior: "smooth",
-				block: "end",
 			});
 		}
 	};

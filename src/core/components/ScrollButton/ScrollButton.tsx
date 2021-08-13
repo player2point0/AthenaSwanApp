@@ -21,12 +21,14 @@ const ScrollButton: FC<Props> = ({ onClick }) => {
 	//TODO fix for different screen sizes
 	const percentage = (scrollPosition / height) * 100;
 	const mappedPercentage = mapRange(percentage, 0, 92, 0, 100);
-	const percentageScrolled = Math.round(mappedPercentage);
+	const percentageScrolled = Math.round(mappedPercentage) || 0;
 
 	return (
-		<div className={styles.scrollButton}>
+		<div className={styles.scrollContainer}>
 			<div>{percentageScrolled}% complete</div>
-			<button onClick={onClick}>scroll</button>
+			<button className={styles.scrollButton} onClick={onClick}>
+				scroll
+			</button>
 		</div>
 	);
 };
