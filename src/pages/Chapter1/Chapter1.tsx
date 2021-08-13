@@ -1,8 +1,8 @@
 import { FC, RefObject } from "react";
-import DoubleColumn from "../../core/DoubleColumn";
-import PictureFrame from "../../core/PictureFrame";
-import TextBox from "../../core/TextBox";
-import Title from "../../core/Title";
+import DoubleColumn from "../../core/components/DoubleColumn";
+import PictureFrame from "../../core/components/PictureFrame";
+import TextBox from "../../core/components/TextBox";
+import Title from "../../core/components/Title";
 import team from "./team.jpg";
 import QUBLogo from "./qub.jpg";
 import UKRILogo from "./ukri.jpg";

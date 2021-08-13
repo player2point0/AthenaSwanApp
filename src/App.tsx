@@ -1,8 +1,6 @@
 // import IframeResizer from "iframe-resizer-react";
 import { RefObject, useEffect, useState } from "react";
-import ScrollButton from "./core/ScrollButton";
-// import Chapter1Title from "./pages/Chapter1Title";
-// import Chapter1About from "./pages/Chapter1About";
+import ScrollButton from "./core/components/ScrollButton";
 import Chapter1 from "./pages/Chapter1";
 import Chapter2 from "./pages/Chapter2";
 
@@ -76,8 +74,8 @@ const App = () => {
 		});
 	};
 
-	// TODO create a basic section comp for the text/video/survey
 	// TODO possibly using the refs maybe programmatically set the background color
+	// maybe wrap all components in some kind of dynamic style applier
 
 	return (
 		<div>

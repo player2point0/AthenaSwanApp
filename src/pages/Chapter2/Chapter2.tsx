@@ -1,8 +1,8 @@
 import { FC, RefObject } from "react";
-import DoubleColumn from "../../core/DoubleColumn";
-import SingleColumn from "../../core/SingleColumn";
-import TextBox from "../../core/TextBox";
-import Title from "../../core/Title";
+import DoubleColumn from "../../core/components/DoubleColumn";
+import SingleColumn from "../../core/components/SingleColumn";
+import TextBox from "../../core/components/TextBox";
+import Title from "../../core/components/Title";
 
 type Props = {
 	addRefsToParent: (
