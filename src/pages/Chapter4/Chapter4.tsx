@@ -10,7 +10,7 @@ const Chapter4: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 	const [isMale, setIsMale] = useState(false);
 
 	const title = (
-		<Title text={"CHAPTER 5:  What does it feel like to be a woman in STEM?"} />
+		<Title text={"CHAPTER 4:  What does it feel like to be a woman in STEM?"} />
 	);
 
 	const buttons = (
