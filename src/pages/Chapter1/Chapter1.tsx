@@ -1,4 +1,4 @@
-import { FC, RefObject } from "react";
+import { FC } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import PictureFrame from "../../core/components/PictureFrame";
 import TextBox from "../../core/components/TextBox";
@@ -6,16 +6,9 @@ import Title from "../../core/components/Title";
 import team from "./team.jpg";
 import QUBLogo from "./qub.jpg";
 import UKRILogo from "./ukri.jpg";
+import { ChapterProps } from "../../core/types";
 
-type Props = {
-	addRefsToParent: (
-		name: string,
-		refs: Array<RefObject<HTMLBodyElement>>
-	) => void;
-	isMobile: boolean;
-};
-
-const Chapter1: FC<Props> = ({ addRefsToParent, isMobile }) => {
+const Chapter1: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 	const title = <Title text={"CHAPTER 1: Who are we?"} />;
 	const teamImage = <PictureFrame imgSrc={team} altText={"QUB team"} />;
 

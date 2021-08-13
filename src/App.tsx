@@ -3,6 +3,7 @@ import { RefObject, useEffect, useState } from "react";
 import ScrollButton from "./core/components/ScrollButton";
 import Chapter1 from "./pages/Chapter1";
 import Chapter2 from "./pages/Chapter2";
+import Chapter3 from "./pages/Chapter3";
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
@@ -82,6 +83,7 @@ const App = () => {
 			<ScrollButton onClick={scrollToNextSection} />
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter2 isMobile={isMobile} addRefsToParent={addRefsToParent} />
+			<Chapter3 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 
 			{/* <Section red ref={surveySectionRef}>
 				<IframeResizer

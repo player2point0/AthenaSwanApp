@@ -1,18 +1,11 @@
-import { FC, RefObject } from "react";
+import { FC } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import SingleColumn from "../../core/components/SingleColumn";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
+import { ChapterProps } from "../../core/types";
 
-type Props = {
-	addRefsToParent: (
-		name: string,
-		refs: Array<RefObject<HTMLBodyElement>>
-	) => void;
-	isMobile: boolean;
-};
-
-const Chapter2: FC<Props> = ({ addRefsToParent, isMobile }) => {
+const Chapter2: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 	const title = <Title text={"CHAPTER 2: Why are we doing this?"} />;
 	const titleText = (
 		<>
