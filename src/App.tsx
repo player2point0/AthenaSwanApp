@@ -1,6 +1,6 @@
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useState } from "react";
 import ScrollButton from "./core/components/ScrollButton";
-import { useScreenWidth } from "./core/hooks";
+import { useScreenWidth, useScrollPosition } from "./core/hooks";
 import Chapter1 from "./pages/Chapter1";
 import Chapter2 from "./pages/Chapter2";
 import Chapter3 from "./pages/Chapter3";
@@ -10,22 +10,13 @@ import Chapter6 from "./pages/Chapter6";
 import Intro from "./pages/Intro";
 
 const App = () => {
-	const [scrollPosition, setScrollPosition] = useState(0);
 	const screenWidth = useScreenWidth();
+	const scrollPosition = useScrollPosition();
 	const isMobile = screenWidth <= 768;
 
 	const [sectionRefs, setSectionRefs] = useState(
 		new Map<string, RefObject<HTMLBodyElement>>()
 	);
-
-	function updatePosition() {
-		setScrollPosition(Math.round(window.pageYOffset));
-	}
-
-	useEffect(() => {
-		window.addEventListener("scroll", updatePosition);
-		return () => window.removeEventListener("scroll", updatePosition);
-	}, []);
 
 	const scrollToNextSection = () => {
 		const refs = Array.from(sectionRefs.values());

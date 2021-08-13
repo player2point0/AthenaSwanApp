@@ -16,3 +16,20 @@ export const useScreenWidth = () => {
 
 	return width;
 };
+
+export const useScrollPosition = () => {
+	const [scrollPosition, setScrollPosition] = useState(
+		Math.round(window.pageYOffset)
+	);
+
+	function updatePosition() {
+		setScrollPosition(Math.round(window.pageYOffset));
+	}
+
+	useEffect(() => {
+		window.addEventListener("scroll", updatePosition);
+		return () => window.removeEventListener("scroll", updatePosition);
+	}, []);
+
+	return scrollPosition;
+};
