@@ -5,6 +5,7 @@ import { useScreenWidth } from "./core/hooks";
 import Chapter1 from "./pages/Chapter1";
 import Chapter2 from "./pages/Chapter2";
 import Chapter3 from "./pages/Chapter3";
+import Chapter4 from "./pages/Chapter4";
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
@@ -75,6 +76,7 @@ const App = () => {
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter2 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter3 isMobile={isMobile} addRefsToParent={addRefsToParent} />
+			<Chapter4 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 
 			{/* <Section red ref={surveySectionRef}>
 				<IframeResizer
