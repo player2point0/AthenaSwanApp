@@ -27,16 +27,19 @@ const Chapter1: FC<Props> = ({ addRefsToParent, isMobile }) => {
 	);
 	const aboutText = (
 		<>
-			<TextBox
-				text={
-					"The following online resource was produced by the Inclusion Matters project team based at Queen’s University Belfast."
-				}
-			/>
-			<TextBox
-				text={
-					"The project was conducted in collaboration with the University of Glasgow and University of Warwick, and was funded by a UK Engineering & Physical Sciences Research Council Inclusion Matters Grant."
-				}
-			/>
+			<TextBox>
+				<p>
+					The following online resource was produced by the Inclusion Matters
+					project team based at Queen’s University Belfast.
+				</p>
+			</TextBox>
+			<TextBox>
+				<p>
+					The project was conducted in collaboration with the University of
+					Glasgow and University of Warwick, and was funded by a UK Engineering
+					& Physical Sciences Research Council Inclusion Matters Grant.
+				</p>
+			</TextBox>
 		</>
 	);
 
