@@ -1,26 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
+import { useScreenWidth } from "../../hooks";
 
 type Props = {
 	url: string;
 };
 
 const YoutubePlayer: FC<Props> = ({ url }) => {
-	// TODO make this a custom hook
-	const [width, setWidth] = useState<number>(window.innerWidth);
-
-	function handleWindowSizeChange() {
-		setWidth(window.innerWidth);
-	}
-
-	useEffect(() => {
-		window.addEventListener("resize", handleWindowSizeChange);
-		return () => {
-			window.removeEventListener("resize", handleWindowSizeChange);
-		};
-	}, []);
+	const screenWidth = useScreenWidth();
 
 	// TODO probably need to take into account mobile
-	const playerWidth = width * 0.9;
+	const playerWidth = screenWidth * 0.9;
 	const playerHeight = playerWidth * (9 / 16);
 
 	return (

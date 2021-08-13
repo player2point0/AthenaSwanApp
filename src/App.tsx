@@ -1,14 +1,15 @@
 // import IframeResizer from "iframe-resizer-react";
 import { RefObject, useEffect, useState } from "react";
 import ScrollButton from "./core/components/ScrollButton";
+import { useScreenWidth } from "./core/hooks";
 import Chapter1 from "./pages/Chapter1";
 import Chapter2 from "./pages/Chapter2";
 import Chapter3 from "./pages/Chapter3";
 
 const App = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
-	const [width, setWidth] = useState<number>(window.innerWidth);
-	const isMobile = width <= 768;
+	const screenWidth = useScreenWidth();
+	const isMobile = screenWidth <= 768;
 
 	const [sectionRefs, setSectionRefs] = useState(
 		new Map<string, RefObject<HTMLBodyElement>>()
@@ -18,19 +19,9 @@ const App = () => {
 		setScrollPosition(Math.round(window.pageYOffset));
 	}
 
-	function handleWindowSizeChange() {
-		setWidth(window.innerWidth);
-	}
-
 	useEffect(() => {
 		window.addEventListener("scroll", updatePosition);
 		return () => window.removeEventListener("scroll", updatePosition);
-	}, []);
-	useEffect(() => {
-		window.addEventListener("resize", handleWindowSizeChange);
-		return () => {
-			window.removeEventListener("resize", handleWindowSizeChange);
-		};
 	}, []);
 
 	const scrollToNextSection = () => {
