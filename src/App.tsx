@@ -1,18 +1,26 @@
 import { RefObject, useState } from "react";
 import ScrollButton from "./core/components/ScrollButton";
-import { useScreenWidth, useScrollPosition } from "./core/hooks";
+import { useScreenWidth } from "./core/hooks/Window";
+import { useForm } from "react-hook-form";
+import Intro from "./pages/Intro";
 import Chapter1 from "./pages/Chapter1";
 import Chapter2 from "./pages/Chapter2";
 import Chapter3 from "./pages/Chapter3";
 import Chapter4 from "./pages/Chapter4";
 import Chapter5 from "./pages/Chapter5";
 import Chapter6 from "./pages/Chapter6";
-import Intro from "./pages/Intro";
+import { UserResponseFormFields } from "./core/types";
 
 const App = () => {
 	const screenWidth = useScreenWidth();
-	const scrollPosition = useScrollPosition();
 	const isMobile = screenWidth <= 768;
+
+	const {
+		register,
+		handleSubmit,
+		// formState: { errors },
+	} = useForm<UserResponseFormFields>();
+	const submit = handleSubmit((data) => console.log(data));
 
 	const [sectionRefs, setSectionRefs] = useState(
 		new Map<string, RefObject<HTMLBodyElement>>()
@@ -72,9 +80,18 @@ const App = () => {
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter2 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter3 isMobile={isMobile} addRefsToParent={addRefsToParent} />
-			<Chapter4 isMobile={isMobile} addRefsToParent={addRefsToParent} />
+			<Chapter4
+				isMobile={isMobile}
+				addRefsToParent={addRefsToParent}
+				registerField={register}
+			/>
 			<Chapter5 isMobile={isMobile} addRefsToParent={addRefsToParent} />
-			<Chapter6 isMobile={isMobile} addRefsToParent={addRefsToParent} />
+			<Chapter6
+				isMobile={isMobile}
+				addRefsToParent={addRefsToParent}
+				registerField={register}
+				submitForm={submit}
+			/>
 		</>
 	);
 };

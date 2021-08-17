@@ -4,9 +4,13 @@ import SingleColumn from "../../core/components/SingleColumn";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import YoutubePlayer from "../../core/components/YoutubePlayer";
-import { ChapterProps } from "../../core/types";
+import { ChapterWithFormProps } from "../../core/types";
 
-const Chapter4: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
+const Chapter4: FC<ChapterWithFormProps> = ({
+	addRefsToParent,
+	isMobile,
+	registerField,
+}) => {
 	const [isMale, setIsMale] = useState(false);
 
 	const title = (
@@ -76,8 +80,7 @@ const Chapter4: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 			<SingleColumn
 				addRefsToParent={(refs) => addRefsToParent("chapter4-input", refs)}
 			>
-				<div>input</div>
-				<button>Done</button>
+				<input {...registerField("chpt4_freeText")} />
 			</SingleColumn>
 		</>
 	);

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useScrollPosition } from "../../hooks";
+import { useScrollPosition } from "../../hooks/Window";
 import styles from "./ScrollButton.module.css";
 
 type Props = {

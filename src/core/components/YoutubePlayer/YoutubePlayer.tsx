@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useScreenWidth } from "../../hooks";
+import { useScreenWidth } from "../../hooks/Window";
 
 type Props = {
 	url: string;

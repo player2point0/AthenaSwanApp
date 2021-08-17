@@ -3,10 +3,14 @@ import DoubleColumn from "../../core/components/DoubleColumn";
 import SingleColumn from "../../core/components/SingleColumn";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
-import { ChapterProps } from "../../core/types";
-import IframeResizer from "iframe-resizer-react";
+import { ChapterWithFormProps } from "../../core/types";
 
-const Chapter6: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
+const Chapter6: FC<ChapterWithFormProps> = ({
+	addRefsToParent,
+	isMobile,
+	registerField,
+	submitForm,
+}) => {
 	const title = <Title text={"CHAPTER 6:  Questionnaire "} />;
 	const titleText = (
 		<>
@@ -26,6 +30,9 @@ const Chapter6: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 		</>
 	);
 
+	// for the forms use one page for the free text input
+	// and one page for th likert scale
+
 	return (
 		<>
 			<DoubleColumn
@@ -39,11 +46,16 @@ const Chapter6: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 					addRefsToParent("chapter6-questionnaire", refs)
 				}
 			>
-				<IframeResizer
-					log
+				<input {...registerField("chpt6_1", { required: true })} />
+				<button onClick={submitForm}>Submit</button>
+				{/* <iframe
 					src="https://docs.google.com/forms/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/viewform?embedded=true"
-					style={{ height: "100vh", width: "50%" }}
-				/>
+					width="100%"
+					height="3000px"
+					title="inclusion matters"
+				>
+					Loading…
+				</iframe> */}
 			</SingleColumn>
 		</>
 	);
