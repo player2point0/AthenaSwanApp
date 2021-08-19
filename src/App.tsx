@@ -10,6 +10,7 @@ import Chapter4 from "./pages/Chapter4";
 import Chapter5 from "./pages/Chapter5";
 import Chapter6 from "./pages/Chapter6";
 import { UserResponseFormFields } from "./core/types";
+const axios = require("axios");
 
 const App = () => {
 	const screenWidth = useScreenWidth();
@@ -20,7 +21,40 @@ const App = () => {
 		handleSubmit,
 		// formState: { errors },
 	} = useForm<UserResponseFormFields>();
-	const submit = handleSubmit((data) => console.log(data));
+	const submit = handleSubmit((data) => {
+		const params = [];
+		if (data.chpt4_freeText) {
+			params.push(`entry.992439576=${data.chpt4_freeText}`);
+		}
+		params.push(`entry.88102718=${data.chpt6_1}`);
+
+		params.push(`entry.292649352=${data.chpt6_2}`);
+		params.push(`entry.107131143=${data.chpt6_3}`);
+		params.push(`entry.822750405=${data.chpt6_4}`);
+		params.push(`entry.1515113063=${data.chpt6_5}`);
+		params.push(`entry.1055747965=${data.chpt6_6}`);
+		params.push(`entry.562075540=${data.chpt6_7}`);
+		params.push(`entry.462816747=${data.chpt6_8}`);
+		params.push(`entry.925772841=${data.chpt6_9}`);
+		params.push(`entry.1321632915=${data.chpt6_10}`);
+
+		const url =
+			"https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/formResponse";
+
+		const paramUrl = url + "?" + params.join("&") + "&submit=Submit";
+
+		// todo add UI feedback
+		axios({
+			method: "post",
+			url: paramUrl,
+		})
+			.then((res: any) => {
+				console.log(res);
+			})
+			.catch((res: any) => {
+				console.log(res);
+			});
+	});
 
 	const [sectionRefs, setSectionRefs] = useState(
 		new Map<string, RefObject<HTMLBodyElement>>()

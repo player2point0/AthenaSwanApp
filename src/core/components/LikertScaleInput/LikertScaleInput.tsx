@@ -6,52 +6,34 @@ type Props = {
 	registerField: Object;
 };
 
+type optionProps = {
+	labelText: string;
+	registerField: Object;
+};
+
+const Option: FC<optionProps> = ({ labelText, registerField }) => {
+	return (
+		<div className={styles.option}>
+			<input type="radio" name="likert" value={labelText} {...registerField} />
+			<label>{labelText}</label>
+		</div>
+	);
+};
+
+// TODO does name need to be the question name / input name??
 const LikertScaleInput: FC<Props> = ({ questionText, registerField }) => {
-	// TODO does name need to be the question name / input name??
 	return (
 		<div>
 			<label>{questionText}</label>
 			<div className={styles.optionsContainer}>
-				<div className={styles.option}>
-					<input
-						type="radio"
-						name="likert"
-						value="strong_agree"
-						{...registerField}
-					/>
-					<label>Strongly agree</label>
-				</div>
-				<div className={styles.option}>
-					<input type="radio" name="likert" value="agree" {...registerField} />
-					<label>Agree</label>
-				</div>
-				<div className={styles.option}>
-					<input
-						type="radio"
-						name="likert"
-						value="neutral"
-						{...registerField}
-					/>
-					<label>Neutral</label>
-				</div>
-				<div className={styles.option}>
-					<input
-						type="radio"
-						name="likert"
-						value="disagree"
-						{...registerField}
-					/>
-					<label>Disagree</label>
-				</div>
-				<div className={styles.option}>
-					<input
-						type="radio"
-						name="likert"
-						value="strong_disagree"
-						{...registerField}
-					/>
-					<label>Strongly disagree</label>
-				</div>
+				<Option registerField={registerField} labelText="Strongly disagree" />
+				<Option registerField={registerField} labelText="Disagree" />
+				<Option
+					registerField={registerField}
+					labelText="Neither agree nor disagree"
+				/>
+				<Option registerField={registerField} labelText="Agree" />
+				<Option registerField={registerField} labelText="Strongly agree" />
 			</div>
 		</div>
 	);

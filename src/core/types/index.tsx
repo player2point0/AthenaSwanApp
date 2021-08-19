@@ -15,7 +15,7 @@ export interface ChapterWithFormProps extends ChapterProps {
 }
 
 export type UserResponseFormFields = {
-	chpt4_freeText: String;
+	chpt4_freeText: string;
 	chpt6_1: string;
 	chpt6_2: string;
 	chpt6_3: string;
