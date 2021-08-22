@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import LikertScaleInput from "../../core/components/LikertScaleInput";
-import SingleColumn from "../../core/components/SingleColumn";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import { ChapterWithFormProps } from "../../core/types";
+import styles from "./Chapter6.module.css";
 
 const Chapter6: FC<ChapterWithFormProps> = ({
 	addRefsToParent,
@@ -12,6 +12,12 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 	registerField,
 	submitForm,
 }) => {
+	const formRef = useRef<HTMLBodyElement>(null);
+
+	useEffect(() => {
+		addRefsToParent("chapter6-questionnaire", [formRef]);
+	}, [addRefsToParent, formRef]);
+
 	const title = <Title text={"CHAPTER 6:  Questionnaire "} />;
 	const titleText = (
 		<>
@@ -39,11 +45,7 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 				leftElement={title}
 				rightElement={titleText}
 			/>
-			<SingleColumn
-				addRefsToParent={(refs) =>
-					addRefsToParent("chapter6-questionnaire", refs)
-				}
-			>
+			<section className={styles.form} ref={formRef}>
 				<LikertScaleInput
 					registerField={registerField("chpt6_1", { required: true })}
 					questionText="I would like to work for a university with this type of Gender Equality Initiative."
@@ -84,17 +86,10 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 					registerField={registerField("chpt6_10", { required: true })}
 					questionText="I have a strong belief that I can help tackle gender bias in my professional field."
 				/>
-
-				<button onClick={submitForm}>Submit</button>
-				{/* <iframe
-					src="https://docs.google.com/forms/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/viewform?embedded=true"
-					width="100%"
-					height="3000px"
-					title="inclusion matters"
-				>
-					Loading…
-				</iframe> */}
-			</SingleColumn>
+				<button className={styles.submitButton} onClick={submitForm}>
+					Submit
+				</button>
+			</section>
 		</>
 	);
 };

@@ -1,6 +1,11 @@
 .likertContainer {
+	align-self: flex-start;
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
 	margin-top: 0.5rem;
 	margin-bottom: 2rem;
+	width: 100%;
 }
 
 .questionText {
@@ -11,6 +16,7 @@
 }
 
 .optionsContainer {
+	width: 100%;
 	height: fit-content;
 	display: flex;
 	flex-direction: row;
