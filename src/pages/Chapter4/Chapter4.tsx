@@ -11,25 +11,34 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 	addRefsToParent,
 	isMobile,
 	registerField,
+	scrollToNextSection,
 }) => {
 	const [isMale, setIsMale] = useState(true);
+	const wrappedScrollToNextSection = () => {
+		if (scrollToNextSection) scrollToNextSection();
+	};
 
 	const title = (
 		<Title text={"CHAPTER 4:  What does it feel like to be a woman in STEM?"} />
 	);
 
-	// TODO should probably scroll depending to next section
 	const buttons = (
 		<TextBox>
 			<p>I am a...</p>
-			<button className={styles.sexButton} onClick={() => setIsMale(true)}>
+			<button
+				className={styles.sexButton}
+				onClick={() => {
+					setIsMale(true);
+					wrappedScrollToNextSection();
+				}}
+			>
 				Male
 			</button>
-			<button className={styles.sexButton}>Female</button>
+			<button className={styles.sexButton} onClick={wrappedScrollToNextSection}>
+				Female
+			</button>
 		</TextBox>
 	);
-
-	// todo scroll onn save
 
 	const isMaleSections = (
 		<>
@@ -94,7 +103,12 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 					className={styles.freeTextInput}
 					{...registerField("chpt4_freeText")}
 				/>
-				<button className={styles.saveButton}>Save</button>
+				<button
+					className={styles.saveButton}
+					onClick={wrappedScrollToNextSection}
+				>
+					Save
+				</button>
 			</SingleColumn>
 		</>
 	);

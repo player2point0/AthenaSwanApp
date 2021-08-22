@@ -7,6 +7,7 @@ export type ChapterProps = {
 		refs: Array<RefObject<HTMLBodyElement>>
 	) => void;
 	isMobile: boolean;
+	scrollToNextSection?: () => void;
 };
 
 export interface ChapterWithFormProps extends ChapterProps {

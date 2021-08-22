@@ -60,6 +60,7 @@ const App = () => {
 		new Map<string, RefObject<HTMLBodyElement>>()
 	);
 
+	// TODO extend to work for last section
 	const scrollToNextSection = () => {
 		//getBoundingClientRect is relative to viewport
 		const refs = Array.from(sectionRefs.values());
@@ -118,6 +119,7 @@ const App = () => {
 				isMobile={isMobile}
 				addRefsToParent={addRefsToParent}
 				registerField={register}
+				scrollToNextSection={scrollToNextSection}
 			/>
 			<Chapter5 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter6
