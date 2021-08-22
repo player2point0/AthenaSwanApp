@@ -5,6 +5,7 @@ import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import YoutubePlayer from "../../core/components/YoutubePlayer";
 import { ChapterWithFormProps } from "../../core/types";
+import styles from "./Chapter4.module.css";
 
 const Chapter4: FC<ChapterWithFormProps> = ({
 	addRefsToParent,
@@ -17,12 +18,15 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 		<Title text={"CHAPTER 4:  What does it feel like to be a woman in STEM?"} />
 	);
 
+	// TODO should probably scroll depending to next section
 	const buttons = (
-		<>
+		<TextBox>
 			<p>I am a...</p>
-			<button onClick={() => setIsMale(true)}>Male</button>
-			<button>Female</button>
-		</>
+			<button className={styles.sexButton} onClick={() => setIsMale(true)}>
+				Male
+			</button>
+			<button className={styles.sexButton}>Female</button>
+		</TextBox>
 	);
 
 	const isMaleSections = (
