@@ -5,3 +5,25 @@
 	margin: 1rem;
 	padding: 1rem;
 }
+
+.freeTextInputLabel {
+	font-family: var(--main-font-family);
+	font-weight: 600;
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.freeTextInput {
+	width: 80vw;
+	height: 70vh;
+	font-family: var(--main-font-family);
+	font-size: 1.5rem;
+}
+
+.saveButton {
+	font-family: var(--main-font-family);
+	font-weight: 600;
+	font-size: 3rem;
+	margin: 2rem;
+	padding: 1rem;
+}

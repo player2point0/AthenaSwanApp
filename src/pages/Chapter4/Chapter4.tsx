@@ -29,6 +29,8 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 		</TextBox>
 	);
 
+	// todo scroll onn save
+
 	const isMaleSections = (
 		<>
 			<SingleColumn
@@ -84,7 +86,15 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 			<SingleColumn
 				addRefsToParent={(refs) => addRefsToParent("chapter4-input", refs)}
 			>
-				<input {...registerField("chpt4_freeText")} />
+				<label className={styles.freeTextInputLabel} htmlFor="chpt4_freeText">
+					Your perspective
+				</label>
+				<textarea
+					id="chpt4_freeText"
+					className={styles.freeTextInput}
+					{...registerField("chpt4_freeText")}
+				/>
+				<button className={styles.saveButton}>Save</button>
 			</SingleColumn>
 		</>
 	);
