@@ -1,0 +1,4 @@
+.playerContainer {
+	box-shadow: var(--drop-shadow);
+	font-size: 0;
+}

@@ -12,7 +12,7 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 	isMobile,
 	registerField,
 }) => {
-	const [isMale, setIsMale] = useState(false);
+	const [isMale, setIsMale] = useState(true);
 
 	const title = (
 		<Title text={"CHAPTER 4:  What does it feel like to be a woman in STEM?"} />
