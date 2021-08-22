@@ -14,8 +14,8 @@ type optionProps = {
 const Option: FC<optionProps> = ({ labelText, registerField }) => {
 	return (
 		<div className={styles.option}>
-			<input type="radio" name="likert" value={labelText} {...registerField} />
 			<label>{labelText}</label>
+			<input type="radio" name="likert" value={labelText} {...registerField} />
 		</div>
 	);
 };
@@ -23,8 +23,8 @@ const Option: FC<optionProps> = ({ labelText, registerField }) => {
 // TODO does name need to be the question name / input name??
 const LikertScaleInput: FC<Props> = ({ questionText, registerField }) => {
 	return (
-		<div>
-			<label>{questionText}</label>
+		<div className={styles.likertContainer}>
+			<label className={styles.questionText}>{questionText}</label>
 			<div className={styles.optionsContainer}>
 				<Option registerField={registerField} labelText="Strongly disagree" />
 				<Option registerField={registerField} labelText="Disagree" />
