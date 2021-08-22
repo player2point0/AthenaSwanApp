@@ -7,6 +7,14 @@
 	z-index: 1;
 }
 
+.scrollPercentage {
+	font-family: var(--main-font-family);
+	font-size: 2rem;
+}
+
 .scrollButton {
-	font-size: xx-large;
+	font-family: var(--main-font-family);
+	font-weight: 600;
+	font-size: 2rem;
+	width: 100%;
 }

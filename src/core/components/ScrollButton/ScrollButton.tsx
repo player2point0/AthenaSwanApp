@@ -25,9 +25,11 @@ const ScrollButton: FC<Props> = ({ onClick }) => {
 
 	return (
 		<div className={styles.scrollContainer}>
-			<div>{percentageScrolled}% complete</div>
+			<div className={styles.scrollPercentage}>
+				{percentageScrolled}% complete
+			</div>
 			<button className={styles.scrollButton} onClick={onClick}>
-				scroll
+				Scroll
 			</button>
 		</div>
 	);
