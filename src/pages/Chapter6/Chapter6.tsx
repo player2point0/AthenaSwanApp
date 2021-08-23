@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import LikertScaleInput from "../../core/components/LikertScaleInput";
+import StyledButton from "../../core/components/StyledButton";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import { ChapterWithFormProps } from "../../core/types";
@@ -36,6 +37,8 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 			</TextBox>
 		</>
 	);
+
+	// TODO fix scroll bug for on submit
 
 	return (
 		<>
@@ -86,9 +89,7 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 					registerField={registerField("chpt6_10", { required: true })}
 					questionText="I have a strong belief that I can help tackle gender bias in my professional field."
 				/>
-				<button className={styles.submitButton} onClick={submitForm}>
-					Submit
-				</button>
+				<StyledButton text="Submit" onClick={submitForm} />
 			</section>
 		</>
 	);

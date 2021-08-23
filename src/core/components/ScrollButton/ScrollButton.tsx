@@ -29,7 +29,7 @@ const ScrollButton: FC<Props> = ({ onClick }) => {
 			<div className={styles.scrollPercentage}>
 				{percentageScrolled}% complete
 			</div>
-			<StyledButton text="Scroll" onClick={onClick} />
+			<StyledButton text="Scroll" onClick={onClick} fillWidth noMargin />
 		</div>
 	);
 };

@@ -4,13 +4,22 @@ import styles from "./StyledButton.module.css";
 type Props = {
 	onClick: () => void;
 	text: string;
+	fillWidth?: boolean;
+	noMargin?: boolean;
 };
 
-const StyledButton: FC<Props> = ({ onClick, text }) => {
+const StyledButton: FC<Props> = ({ onClick, text, fillWidth, noMargin }) => {
 	return (
-		<div onClick={onClick} className={styles.container}>
+		<button
+			style={{
+				width: fillWidth ? "100%" : "fit-content",
+				margin: noMargin ? 0 : "2rem",
+			}}
+			onClick={onClick}
+			className={styles.container}
+		>
 			{text}
-		</div>
+		</button>
 	);
 };
 

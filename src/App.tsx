@@ -105,8 +105,7 @@ const App = () => {
 		});
 	};
 
-	// TODO possibly using the refs maybe programmatically set the background color
-	// maybe wrap all components in some kind of dynamic style applier
+	// TODO fix this for the later added sections (chapter 4)
 	useEffect(() => {
 		const refs = Array.from(sectionRefs.values());
 

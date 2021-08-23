@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import SingleColumn from "../../core/components/SingleColumn";
+import StyledButton from "../../core/components/StyledButton";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import YoutubePlayer from "../../core/components/YoutubePlayer";
@@ -25,18 +26,14 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 	const buttons = (
 		<TextBox>
 			<p>I am a...</p>
-			<button
-				className={styles.sexButton}
+			<StyledButton
+				text="Male"
 				onClick={() => {
 					setIsMale(true);
 					wrappedScrollToNextSection();
 				}}
-			>
-				Male
-			</button>
-			<button className={styles.sexButton} onClick={wrappedScrollToNextSection}>
-				Female
-			</button>
+			/>
+			<StyledButton text="Female" onClick={wrappedScrollToNextSection} />
 		</TextBox>
 	);
 
@@ -103,12 +100,7 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 					className={styles.freeTextInput}
 					{...registerField("chpt4_freeText")}
 				/>
-				<button
-					className={styles.saveButton}
-					onClick={wrappedScrollToNextSection}
-				>
-					Save
-				</button>
+				<StyledButton text="Save" onClick={wrappedScrollToNextSection} />
 			</SingleColumn>
 		</>
 	);
