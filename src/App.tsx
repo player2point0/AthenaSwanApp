@@ -60,19 +60,11 @@ const App = () => {
 		new Map<string, RefObject<HTMLBodyElement>>()
 	);
 
-	// TODO extend to work for last section
 	const scrollToNextSection = () => {
 		//getBoundingClientRect is relative to viewport
 		const refs = Array.from(sectionRefs.values());
 
-		const sectionsAfterCurrent = refs.filter((section) => {
-			if (!section.current) {
-				return false;
-			}
-
-			return Math.round(section.current?.getBoundingClientRect().y) > 0;
-		});
-		const sortedSectionsAfterCurrent = sectionsAfterCurrent.sort((a, b) => {
+		const sortedSections = refs.sort((a, b) => {
 			if (!a.current || !b.current) {
 				return 0;
 			}
@@ -82,8 +74,24 @@ const App = () => {
 			);
 		});
 
+		const sortedSectionsAfterCurrent = sortedSections.filter((section) => {
+			if (!section.current) {
+				return false;
+			}
+
+			return Math.round(section.current?.getBoundingClientRect().y) > 0;
+		});
+
 		if (sortedSectionsAfterCurrent.length >= 1) {
 			sortedSectionsAfterCurrent[0].current?.scrollIntoView({
+				behavior: "smooth",
+			});
+		} else {
+			// last sections so scroll to end
+			const lastIndex = sortedSections.length - 1;
+
+			sortedSections[lastIndex].current?.scrollIntoView({
+				block: "end",
 				behavior: "smooth",
 			});
 		}

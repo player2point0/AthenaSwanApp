@@ -24,6 +24,8 @@ const ScrollButton: FC<Props> = ({ onClick }) => {
 	const mappedPercentage = mapRange(percentage, 0, 92, 0, 100);
 	const percentageScrolled = Math.round(mappedPercentage) || 0;
 
+	// TODO for mobile swap out scroll text for icon
+
 	return (
 		<div className={styles.scrollContainer}>
 			<div className={styles.scrollPercentage}>
