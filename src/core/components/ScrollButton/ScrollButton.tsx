@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useScrollPosition } from "../../hooks/Window";
+import StyledButton from "../StyledButton";
 import styles from "./ScrollButton.module.css";
 
 type Props = {
@@ -28,9 +29,7 @@ const ScrollButton: FC<Props> = ({ onClick }) => {
 			<div className={styles.scrollPercentage}>
 				{percentageScrolled}% complete
 			</div>
-			<button className={styles.scrollButton} onClick={onClick}>
-				Scroll
-			</button>
+			<StyledButton text="Scroll" onClick={onClick} />
 		</div>
 	);
 };

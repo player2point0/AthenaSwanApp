@@ -123,7 +123,7 @@ const App = () => {
 		for (let i = 0; i < refs.length; i += 2) {
 			sortedSections[i].current?.setAttribute(
 				"style",
-				"background-color:#EB0029"
+				"background-color:#D6000D"
 			);
 		}
 
