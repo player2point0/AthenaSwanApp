@@ -13,7 +13,7 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 	registerField,
 	scrollToNextSection,
 }) => {
-	const [isMale, setIsMale] = useState(true);
+	const [isMale, setIsMale] = useState(false);
 	const wrappedScrollToNextSection = () => {
 		if (scrollToNextSection) scrollToNextSection();
 	};

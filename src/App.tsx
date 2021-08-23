@@ -1,4 +1,4 @@
-import { RefObject, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 import ScrollButton from "./core/components/ScrollButton";
 import { useScreenWidth } from "./core/hooks/Window";
 import { useForm } from "react-hook-form";
@@ -107,6 +107,28 @@ const App = () => {
 
 	// TODO possibly using the refs maybe programmatically set the background color
 	// maybe wrap all components in some kind of dynamic style applier
+	useEffect(() => {
+		const refs = Array.from(sectionRefs.values());
+
+		const sortedSections = refs.sort((a, b) => {
+			if (!a.current || !b.current) {
+				return 0;
+			}
+			return (
+				a.current?.getBoundingClientRect().y -
+				b.current?.getBoundingClientRect().y
+			);
+		});
+
+		for (let i = 0; i < refs.length; i += 2) {
+			sortedSections[i].current?.setAttribute(
+				"style",
+				"background-color:#EB0029"
+			);
+		}
+
+		console.log("set color");
+	}, [sectionRefs]);
 
 	return (
 		<>
