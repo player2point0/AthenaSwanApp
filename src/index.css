@@ -10,3 +10,7 @@ body {
 	--main-font-family: "Roboto";
 	--drop-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
 }
+
+/* body::-webkit-scrollbar {
+	display: none;
+} */

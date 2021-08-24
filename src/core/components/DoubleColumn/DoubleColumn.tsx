@@ -25,7 +25,7 @@ const DoubleColumn: FC<Props> = ({
 
 	useEffect(() => {
 		addRefsToParent([mainColumnRef, secondaryColumnRef]);
-	}, [addRefsToParent, mainColumnRef, secondaryColumnRef, isMobile]);
+	}, [mainColumnRef, secondaryColumnRef, isMobile]);
 
 	if (isMobile) {
 		return (

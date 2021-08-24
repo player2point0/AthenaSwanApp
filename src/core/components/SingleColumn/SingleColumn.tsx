@@ -10,7 +10,7 @@ const SingleColumn: FC<Props> = ({ addRefsToParent, children }) => {
 
 	useEffect(() => {
 		addRefsToParent([mainColumnRef]);
-	}, [addRefsToParent, mainColumnRef]);
+	}, [mainColumnRef]);
 
 	return (
 		<section className={styles.singleColumn} ref={mainColumnRef}>

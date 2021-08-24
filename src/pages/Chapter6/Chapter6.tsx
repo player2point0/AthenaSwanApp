@@ -17,7 +17,7 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 
 	useEffect(() => {
 		addRefsToParent("chapter6-questionnaire", [formRef]);
-	}, [addRefsToParent, formRef]);
+	}, [formRef]);
 
 	const title = <Title text={"CHAPTER 6:  Questionnaire "} />;
 	const titleText = (

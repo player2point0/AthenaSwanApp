@@ -21,40 +21,47 @@ const App = () => {
 		handleSubmit,
 		// formState: { errors },
 	} = useForm<UserResponseFormFields>();
-	const submit = handleSubmit((data) => {
-		const params = [];
-		if (data.chpt4_freeText) {
-			params.push(`entry.992439576=${data.chpt4_freeText}`);
-		}
-		params.push(`entry.88102718=${data.chpt6_1}`);
+	// TODO add validation to require the likert values to be entered
+	// TODO add in an error function to update UI and prevent default scroll
+	const submit = handleSubmit(
+		(data) => {
+			const params = [];
+			if (data.chpt4_freeText) {
+				params.push(`entry.992439576=${data.chpt4_freeText}`);
+			}
+			params.push(`entry.88102718=${data.chpt6_1}`);
 
-		params.push(`entry.292649352=${data.chpt6_2}`);
-		params.push(`entry.107131143=${data.chpt6_3}`);
-		params.push(`entry.822750405=${data.chpt6_4}`);
-		params.push(`entry.1515113063=${data.chpt6_5}`);
-		params.push(`entry.1055747965=${data.chpt6_6}`);
-		params.push(`entry.562075540=${data.chpt6_7}`);
-		params.push(`entry.462816747=${data.chpt6_8}`);
-		params.push(`entry.925772841=${data.chpt6_9}`);
-		params.push(`entry.1321632915=${data.chpt6_10}`);
+			params.push(`entry.292649352=${data.chpt6_2}`);
+			params.push(`entry.107131143=${data.chpt6_3}`);
+			params.push(`entry.822750405=${data.chpt6_4}`);
+			params.push(`entry.1515113063=${data.chpt6_5}`);
+			params.push(`entry.1055747965=${data.chpt6_6}`);
+			params.push(`entry.562075540=${data.chpt6_7}`);
+			params.push(`entry.462816747=${data.chpt6_8}`);
+			params.push(`entry.925772841=${data.chpt6_9}`);
+			params.push(`entry.1321632915=${data.chpt6_10}`);
 
-		const url =
-			"https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/formResponse";
+			const url =
+				"https://docs.google.com/forms/u/0/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/formResponse";
 
-		const paramUrl = url + "?" + params.join("&") + "&submit=Submit";
+			const paramUrl = url + "?" + params.join("&") + "&submit=Submit";
 
-		// todo add UI feedback
-		axios({
-			method: "post",
-			url: paramUrl,
-		})
-			.then((res: any) => {
-				console.log(res);
+			// TODO add UI feedback
+			axios({
+				method: "post",
+				url: paramUrl,
 			})
-			.catch((res: any) => {
-				console.log(res);
-			});
-	});
+				.then((res: any) => {
+					console.log(res);
+				})
+				.catch((res: any) => {
+					console.log(res);
+				});
+		},
+		(errors) => {
+			console.log(errors);
+		}
+	);
 
 	const [sectionRefs, setSectionRefs] = useState(
 		new Map<string, RefObject<HTMLBodyElement>>()
@@ -105,16 +112,20 @@ const App = () => {
 			const nonNullRefs = refs.filter(
 				(ref) => ref !== null && ref.current !== null
 			);
+
+			const newRefs = new Map(currentRefs);
+
 			for (let i = 0; i < nonNullRefs.length; i++) {
-				currentRefs.set(`${name}-${i}`, nonNullRefs[i]);
+				newRefs.set(`${name}-${i}`, nonNullRefs[i]);
 			}
 
-			return currentRefs;
+			return newRefs;
 		});
 	};
 
-	// TODO fix this for the later added sections (chapter 4)
 	useEffect(() => {
+		console.log("set background colors");
+
 		const refs = Array.from(sectionRefs.values());
 
 		const sortedSections = refs.sort((a, b) => {
@@ -133,9 +144,9 @@ const App = () => {
 				"background-color:#D6000D"
 			);
 		}
+	}, [sectionRefs.size]);
 
-		console.log("set color");
-	}, [sectionRefs]);
+	console.log("rerender");
 
 	return (
 		<>
