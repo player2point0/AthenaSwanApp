@@ -7,11 +7,16 @@ import Title from "../../core/components/Title";
 import { ChapterWithFormProps } from "../../core/types";
 import styles from "./Chapter6.module.css";
 
-const Chapter6: FC<ChapterWithFormProps> = ({
+interface Chapter6Props extends ChapterWithFormProps {
+	formHasErrors: boolean;
+}
+
+const Chapter6: FC<Chapter6Props> = ({
 	addRefsToParent,
 	isMobile,
 	registerField,
 	submitForm,
+	formHasErrors,
 }) => {
 	const formRef = useRef<HTMLBodyElement>(null);
 
@@ -38,7 +43,7 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 		</>
 	);
 
-	// TODO fix scroll bug for on submit
+	console.log(formHasErrors);
 
 	return (
 		<>
@@ -89,7 +94,14 @@ const Chapter6: FC<ChapterWithFormProps> = ({
 					registerField={registerField("chpt6_10", { required: true })}
 					questionText="I have a strong belief that I can help tackle gender bias in my professional field."
 				/>
-				<StyledButton text="Submit" onClick={submitForm} />
+
+				{formHasErrors ? (
+					<h1 className={styles.formErrorMessage}>
+						Please answer all questions.
+					</h1>
+				) : (
+					<StyledButton text="Submit" onClick={submitForm} />
+				)}
 			</section>
 		</>
 	);

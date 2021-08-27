@@ -10,6 +10,9 @@ import Chapter4 from "./pages/Chapter4";
 import Chapter5 from "./pages/Chapter5";
 import Chapter6 from "./pages/Chapter6";
 import { UserResponseFormFields } from "./core/types";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const axios = require("axios");
 
 const App = () => {
@@ -19,10 +22,8 @@ const App = () => {
 	const {
 		register,
 		handleSubmit,
-		// formState: { errors },
-	} = useForm<UserResponseFormFields>();
-	// TODO add validation to require the likert values to be entered
-	// TODO add in an error function to update UI and prevent default scroll
+		formState: { isValid },
+	} = useForm<UserResponseFormFields>({ mode: "onChange" });
 	const submit = handleSubmit(
 		(data) => {
 			const params = [];
@@ -46,20 +47,15 @@ const App = () => {
 
 			const paramUrl = url + "?" + params.join("&") + "&submit=Submit";
 
-			// TODO add UI feedback
 			axios({
 				method: "post",
 				url: paramUrl,
-			})
-				.then((res: any) => {
-					console.log(res);
-				})
-				.catch((res: any) => {
-					console.log(res);
-				});
+			}).finally((res: any) => {
+				toast("Successfully submitted response.", { type: "success" });
+			});
 		},
 		(errors) => {
-			console.log(errors);
+			console.log("form errors");
 		}
 	);
 
@@ -124,8 +120,6 @@ const App = () => {
 	};
 
 	useEffect(() => {
-		console.log("set background colors");
-
 		const refs = Array.from(sectionRefs.values());
 
 		const sortedSections = refs.sort((a, b) => {
@@ -146,10 +140,9 @@ const App = () => {
 		}
 	}, [sectionRefs.size]);
 
-	console.log("rerender");
-
 	return (
 		<>
+			<ToastContainer />
 			<ScrollButton onClick={scrollToNextSection} />
 			<Intro isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
@@ -167,6 +160,7 @@ const App = () => {
 				addRefsToParent={addRefsToParent}
 				registerField={register}
 				submitForm={submit}
+				formHasErrors={!isValid}
 			/>
 		</>
 	);
