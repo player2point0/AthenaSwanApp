@@ -24,7 +24,7 @@ const Chapter6: FC<Chapter6Props> = ({
 		addRefsToParent("chapter6-questionnaire", [formRef]);
 	}, [formRef]);
 
-	const title = <Title text={"CHAPTER 6:  Questionnaire "} />;
+	const title = <Title text={"CHAPTER 6: Questionnaire"} />;
 	const titleText = (
 		<>
 			<TextBox>

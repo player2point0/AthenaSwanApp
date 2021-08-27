@@ -7,7 +7,7 @@ import { ChapterProps } from "../../core/types";
 
 const Chapter5: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 	const title = (
-		<Title text={"CHAPTER 5:  What are gender equality initiatives?"} />
+		<Title text={"CHAPTER 5: What are gender equality initiatives?"} />
 	);
 	const titleText = (
 		<TextBox>

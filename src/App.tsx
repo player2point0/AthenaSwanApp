@@ -119,6 +119,7 @@ const App = () => {
 		});
 	};
 
+	// TODO fix mobile support
 	useEffect(() => {
 		const refs = Array.from(sectionRefs.values());
 
@@ -138,7 +139,7 @@ const App = () => {
 				"background-color:#D6000D"
 			);
 		}
-	}, [sectionRefs.size]);
+	}, [sectionRefs.size, isMobile]);
 
 	return (
 		<>
