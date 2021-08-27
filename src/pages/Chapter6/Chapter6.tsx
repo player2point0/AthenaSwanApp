@@ -43,8 +43,6 @@ const Chapter6: FC<Chapter6Props> = ({
 		</>
 	);
 
-	console.log(formHasErrors);
-
 	return (
 		<>
 			<DoubleColumn

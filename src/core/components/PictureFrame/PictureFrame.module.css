@@ -3,4 +3,5 @@
 	box-shadow: var(--drop-shadow);
 	width: auto;
 	margin: 3rem;
+	font-size: 0px;
 }

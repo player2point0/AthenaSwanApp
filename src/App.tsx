@@ -12,6 +12,7 @@ import Chapter6 from "./pages/Chapter6";
 import { UserResponseFormFields } from "./core/types";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 
 const axios = require("axios");
 
