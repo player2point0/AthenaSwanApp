@@ -2,10 +2,10 @@
 	border: 5px solid black;
 	box-shadow: var(--drop-shadow);
 	width: auto;
-	margin: 50px;
-	padding: 50px;
+	margin: 3rem;
+	padding: 3rem;
 	font-family: var(--main-font-family);
 	font-weight: 700;
-	font-size: 3.25em;
+	font-size: 3.25rem;
 	background-color: white;
 }

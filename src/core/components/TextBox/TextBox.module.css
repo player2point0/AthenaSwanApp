@@ -3,10 +3,10 @@
 	box-shadow: var(--drop-shadow);
 	width: fit-content;
 	height: fit-content;
-	margin: 50px;
-	padding: 20px;
+	margin: 3rem;
+	padding: 2rem 3rem 2rem 3rem;
 	font-family: var(--main-font-family);
 	font-weight: 400;
-	font-size: 2em;
+	font-size: 2rem;
 	background-color: white;
 }
