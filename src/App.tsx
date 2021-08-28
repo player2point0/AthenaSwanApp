@@ -144,7 +144,7 @@ const App = () => {
 	return (
 		<>
 			<ToastContainer />
-			<ScrollButton onClick={scrollToNextSection} />
+			<ScrollButton isMobile={isMobile} onClick={scrollToNextSection} />
 			<Intro isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter2 isMobile={isMobile} addRefsToParent={addRefsToParent} />

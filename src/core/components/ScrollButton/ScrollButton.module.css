@@ -13,3 +13,6 @@
 	border-left: var(--thick-border);
 	border-right: var(--thick-border);
 }
+.arrowDownSvg {
+	height: 1	
+}
