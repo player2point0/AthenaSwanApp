@@ -8,7 +8,7 @@
 
 .scrollPercentage {
 	font-family: var(--main-font-family);
-	font-size: 2rem;
+	font-size: medium;
 	border-top: var(--thick-border);
 	border-left: var(--thick-border);
 	border-right: var(--thick-border);

@@ -1,7 +1,7 @@
 .container {
 	font-family: var(--main-font-family);
 	font-weight: 700;
-	font-size: 3rem;
+	font-size: large;
 	width: 100%;
 	background-color: #8f0e20;
 	color: white;
