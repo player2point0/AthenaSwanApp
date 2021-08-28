@@ -17,6 +17,23 @@ export const useScreenWidth = () => {
 	return width;
 };
 
+export const useScreenHeight = () => {
+	const [height, setHeight] = useState<number>(window.innerHeight);
+
+	function handleWindowSizeChange() {
+		setHeight(window.innerHeight);
+	}
+
+	useEffect(() => {
+		window.addEventListener("resize", handleWindowSizeChange);
+		return () => {
+			window.removeEventListener("resize", handleWindowSizeChange);
+		};
+	}, []);
+
+	return height;
+};
+
 export const useScrollPosition = () => {
 	const [scrollPosition, setScrollPosition] = useState(
 		Math.round(window.pageYOffset)

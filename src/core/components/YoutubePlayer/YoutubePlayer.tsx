@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useScreenWidth } from "../../hooks/Window";
+import { useScreenHeight, useScreenWidth } from "../../hooks/Window";
 import styles from "./YoutubePlayer.module.css";
 
 type Props = {
@@ -8,10 +8,15 @@ type Props = {
 
 const YoutubePlayer: FC<Props> = ({ url }) => {
 	const screenWidth = useScreenWidth();
+	const screenHeight = useScreenHeight();
 
-	// TODO probably need to take into account mobile
-	const playerWidth = Math.floor(screenWidth * 0.95);
-	const playerHeight = Math.floor(playerWidth * (9 / 16));
+	let playerWidth = Math.floor(screenWidth * 0.95);
+	let playerHeight = Math.floor(playerWidth * (9 / 16));
+
+	if (playerHeight > screenHeight) {
+		playerHeight = Math.floor(screenHeight * 0.95);
+		playerWidth = Math.floor(playerHeight * (16 / 9));
+	}
 
 	return (
 		<div className={styles.playerContainer}>
