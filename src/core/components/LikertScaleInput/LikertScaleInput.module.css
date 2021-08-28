@@ -1,11 +1,14 @@
 .likertContainer {
-	align-self: flex-start;
 	display: flex;
 	flex-direction: column;
 	align-items: baseline;
-	margin-top: 0.5rem;
-	margin-bottom: 2rem;
-	width: 100%;
+	padding: 1rem;
+	margin: 2rem;
+	width: 90vw;
+	box-sizing: content-box;
+	background-color: white;
+	border: 5px solid black;
+	box-shadow: var(--drop-shadow);
 }
 
 .questionText {

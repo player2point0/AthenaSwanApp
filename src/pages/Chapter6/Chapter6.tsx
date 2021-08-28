@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import LikertScaleInput from "../../core/components/LikertScaleInput";
+import SingleColumn from "../../core/components/SingleColumn";
 import StyledButton from "../../core/components/StyledButton";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
@@ -43,6 +44,8 @@ const Chapter6: FC<Chapter6Props> = ({
 		</>
 	);
 
+	// TODO maybe force a
+
 	return (
 		<>
 			<DoubleColumn
@@ -51,7 +54,11 @@ const Chapter6: FC<Chapter6Props> = ({
 				leftElement={title}
 				rightElement={titleText}
 			/>
-			<section className={styles.form} ref={formRef}>
+			<SingleColumn
+				addRefsToParent={(refs) =>
+					addRefsToParent("chapter6-questionnaire-1", refs)
+				}
+			>
 				<LikertScaleInput
 					registerField={registerField("chpt6_1", { required: true })}
 					questionText="I would like to work for a university with this type of Gender Equality Initiative."
@@ -68,6 +75,12 @@ const Chapter6: FC<Chapter6Props> = ({
 					registerField={registerField("chpt6_4", { required: true })}
 					questionText="A University with this type of Gender Equality Initiative would be a good place for someone like me to work."
 				/>
+			</SingleColumn>
+			<SingleColumn
+				addRefsToParent={(refs) =>
+					addRefsToParent("chapter6-questionnaire-2", refs)
+				}
+			>
 				<LikertScaleInput
 					registerField={registerField("chpt6_5", { required: true })}
 					questionText="I would participate in initiatives like this Gender Equality Initiative because I would want to."
@@ -80,6 +93,12 @@ const Chapter6: FC<Chapter6Props> = ({
 					registerField={registerField("chpt6_7", { required: true })}
 					questionText="I feel confident in my ability to address instances of gender bias in my professional field."
 				/>
+			</SingleColumn>
+			<SingleColumn
+				addRefsToParent={(refs) =>
+					addRefsToParent("chapter6-questionnaire-3", refs)
+				}
+			>
 				<LikertScaleInput
 					registerField={registerField("chpt6_8", { required: true })}
 					questionText="The information presented in this online resource has provided opportunities for me to strengthen my ability to address gender bias in my professional field."
@@ -92,7 +111,6 @@ const Chapter6: FC<Chapter6Props> = ({
 					registerField={registerField("chpt6_10", { required: true })}
 					questionText="I have a strong belief that I can help tackle gender bias in my professional field."
 				/>
-
 				{formHasErrors ? (
 					<h1 className={styles.formErrorMessage}>
 						Please answer all questions.
@@ -100,7 +118,7 @@ const Chapter6: FC<Chapter6Props> = ({
 				) : (
 					<StyledButton text="Submit" onClick={submitForm} />
 				)}
-			</section>
+			</SingleColumn>
 		</>
 	);
 };

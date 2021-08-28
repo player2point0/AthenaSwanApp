@@ -120,7 +120,6 @@ const App = () => {
 		});
 	};
 
-	// TODO fix mobile support
 	useEffect(() => {
 		const refs = Array.from(sectionRefs.values());
 
