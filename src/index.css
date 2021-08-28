@@ -9,6 +9,7 @@ body {
 	padding: 0;
 	--main-font-family: "Roboto", Arial, sans-serif;
 	--drop-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
+	--thick-border: 5px solid black;
 }
 
 /* body::-webkit-scrollbar {

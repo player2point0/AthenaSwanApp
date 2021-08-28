@@ -1,5 +1,5 @@
 .TextBoxText {
-	border: 5px solid black;
+	border: var(--thick-border);
 	box-shadow: var(--drop-shadow);
 	width: fit-content;
 	height: fit-content;

@@ -1,5 +1,5 @@
 .titleText {
-	border: 5px solid black;
+	border: var(--thick-border);
 	box-shadow: var(--drop-shadow);
 	width: auto;
 	margin: 3rem;

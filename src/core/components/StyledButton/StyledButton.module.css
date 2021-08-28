@@ -6,7 +6,7 @@
 	background-color: #8f0e20;
 	color: white;
 	text-align: center;
-	border: 5px solid black;
+	border: var(--thick-border);
 	padding: 1rem;
 }
 
