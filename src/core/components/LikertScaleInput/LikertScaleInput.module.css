@@ -12,7 +12,7 @@
 }
 
 .questionText {
-	margin: 1rem;
+	margin: var(--default-margin);
 	font-family: var(--main-font-family);
 	font-weight: 700;
 	font-size: 1.75rem;

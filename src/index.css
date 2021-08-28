@@ -10,6 +10,7 @@ body {
 	--main-font-family: "Roboto", Arial, sans-serif;
 	--drop-shadow: 5px 5px 10px rgb(0 0 0 / 0.5);
 	--thick-border: 5px solid black;
+	--default-margin: 1rem 1.5rem 0.5rem 1.5rem;
 }
 
 /* body::-webkit-scrollbar {

@@ -2,7 +2,7 @@
 	border: var(--thick-border);
 	box-shadow: var(--drop-shadow);
 	width: auto;
-	margin: 3rem;
+	margin: var(--default-margin);
 	font-size: 0px;
 	max-width: 100%;
 	background-color: white;

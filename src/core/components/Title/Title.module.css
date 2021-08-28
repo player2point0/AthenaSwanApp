@@ -2,11 +2,11 @@
 	border: var(--thick-border);
 	box-shadow: var(--drop-shadow);
 	width: auto;
-	margin: 3rem;
-	padding: 3rem;
+	margin: var(--default-margin);
+	padding: 2rem;
 	font-family: var(--main-font-family);
 	font-weight: 700;
-	font-size: 3.25rem;
+	font-size: xx-large;
 	background-color: white;
 	color: #d6000d;
 }
