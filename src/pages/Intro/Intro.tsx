@@ -13,13 +13,17 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent }) => {
 						read through several “Chapters” which explain who we are, what we
 						do, and what our research has found.
 					</p>
-
-					<h4>CHAPTER 1: Who are we?</h4>
-					<h4>CHAPTER 2: Why are we doing this?</h4>
-					<h4>CHAPTER 3: What do we know about gender bias?</h4>
-					<h4>CHAPTER 4: What does it feel like to be a woman in STEM?</h4>
-					<h4>CHAPTER 5: What are gender equality initiatives?</h4>
-					<h4>CHAPTER 6: Questionnaire</h4>
+				</TextBox>
+				<TextBox>
+					<p>Chapters overview:</p>
+					<ul>
+						<li>CHAPTER 1: Who are we?</li>
+						<li>CHAPTER 2: Why are we doing this?</li>
+						<li>CHAPTER 3: What do we know about gender bias?</li>
+						<li>CHAPTER 4: What does it feel like to be a woman in STEM?</li>
+						<li>CHAPTER 5: What are gender equality initiatives?</li>
+						<li>CHAPTER 6: Questionnaire</li>
+					</ul>
 				</TextBox>
 				<TextBox>
 					<p>

@@ -4,4 +4,7 @@
 	width: auto;
 	margin: 3rem;
 	font-size: 0px;
+	max-width: 100%;
+	background-color: white;
+	box-sizing: border-box;
 }

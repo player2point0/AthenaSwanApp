@@ -20,7 +20,7 @@ const DoubleColumn: FC<Props> = ({
 		<div className={styles.leftElement}>{leftElement}</div>
 	);
 	const wrappedRightElement = (
-		<div className={styles.leftElement}>{rightElement}</div>
+		<div className={styles.rightElement}>{rightElement}</div>
 	);
 
 	useEffect(() => {
