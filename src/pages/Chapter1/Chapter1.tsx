@@ -49,8 +49,8 @@ const Chapter1: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 			<DoubleColumn
 				addRefsToParent={(refs) => addRefsToParent("chapter1-about", refs)}
 				isMobile={isMobile}
-				leftElement={logos}
-				rightElement={aboutText}
+				leftElement={aboutText}
+				rightElement={logos}
 			/>
 		</>
 	);

@@ -4,7 +4,7 @@
 	width: auto;
 	margin: var(--default-margin);
 	font-size: 0px;
-	max-width: 100%;
+	max-width: 90%;
 	background-color: white;
 	box-sizing: border-box;
 }
