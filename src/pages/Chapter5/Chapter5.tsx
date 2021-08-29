@@ -1,11 +1,9 @@
 import { FC } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
-import SingleColumn from "../../core/components/SingleColumn";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import { ChapterProps } from "../../core/types";
 
-// TODO split into double
 const Chapter5: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 	const title = (
 		<Title text={"CHAPTER 5: What are gender equality initiatives?"} />

@@ -44,8 +44,6 @@ const Chapter6: FC<Chapter6Props> = ({
 		</>
 	);
 
-	// TODO maybe force a
-
 	return (
 		<>
 			<DoubleColumn
