@@ -36,8 +36,6 @@ const Chapter1: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 		</>
 	);
 
-	// TODO get official images and follow brand guidelines on sizing / resolution
-
 	return (
 		<>
 			<DoubleColumn

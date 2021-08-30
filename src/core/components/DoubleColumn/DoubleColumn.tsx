@@ -36,6 +36,8 @@ const DoubleColumn: FC<Props> = ({
 		);
 	}
 
+	// TODO use single column here
+	// TODO maybe create a reverse double column that splits a single column into two when on mobile
 	return (
 		<section ref={mainColumnRef} className={styles.doubleColumn}>
 			{wrappedLeftElement}

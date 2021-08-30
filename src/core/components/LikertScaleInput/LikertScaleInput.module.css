@@ -11,10 +11,10 @@
 }
 
 .questionText {
-	margin: var(--default-margin);
 	font-family: var(--main-font-family);
 	font-weight: 700;
 	font-size: medium;
+	margin: 0;
 }
 
 .optionsContainer {
@@ -45,6 +45,27 @@
 	.likertContainer {
 		padding: 0.25rem;
 		margin: 0.2rem;
-		width: 90%;
+		padding: var(--default-margin);
+	}
+
+	.questionText {
+		font-family: var(--main-font-family);
+		font-weight: 700;
+		font-size: medium;
+	}
+
+	.optionsContainer {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.option {
+		flex-direction: row-reverse;
+		text-align: center;
+		margin: 0.5rem 0 0.5rem 0;
+	}
+
+	.option input {
+		margin-right: 0.5rem;
 	}
 }
