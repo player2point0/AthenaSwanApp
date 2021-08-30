@@ -1,9 +1,14 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
+import SingleColumn from "../../core/components/SingleColumn";
+import StyledButton from "../../core/components/StyledButton";
 import TextBox from "../../core/components/TextBox";
 import { ChapterProps } from "../../core/types";
+import usePWA from "react-pwa-install-prompt";
 
 const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
+	const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA();
+
 	const overview = (
 		<>
 			<TextBox>
@@ -38,8 +43,27 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 		</TextBox>
 	);
 
+	isMobile = true;
+
+	const displayInstallPrompt =
+		isStandalone && isInstallPromptSupported && isMobile;
+
 	return (
 		<>
+			{displayInstallPrompt && (
+				<SingleColumn
+					addRefsToParent={(refs) => addRefsToParent("intro", refs)}
+				>
+					<TextBox>
+						<p>
+							Click the button below to install this online resource to your
+							home screen for future easy access
+						</p>
+					</TextBox>
+					<StyledButton text="install" onClick={promptInstall} />
+				</SingleColumn>
+			)}
+
 			<DoubleColumn
 				addRefsToParent={(refs) => addRefsToParent("intro", refs)}
 				isMobile={isMobile}
