@@ -33,16 +33,15 @@ const ScrollButton: FC<Props> = ({ onClick, isMobile }) => {
 	);
 	let percentageScrolled = Math.round(mappedPercentage) || 0;
 
-	// TODO for mobile swap out scroll text for icon
-	isMobile = false;
-
 	return (
 		<div className={styles.scrollContainer}>
 			<div className={styles.scrollPercentage}>
 				{percentageScrolled}% complete
 			</div>
 			{isMobile ? (
-				<FaAngleDoubleDown size="4rem" onClick={onClick} />
+				<div className={styles.arrowDown}>
+					<FaAngleDoubleDown size="4rem" onClick={onClick} color="white" />
+				</div>
 			) : (
 				<StyledButton text="Scroll" onClick={onClick} fillWidth noMargin />
 			)}

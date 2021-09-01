@@ -13,6 +13,8 @@
 	border-left: var(--thick-border);
 	border-right: var(--thick-border);
 }
-.arrowDownSvg {
-	height: 1	
+.arrowDown {
+	border: var(--thick-border);
+	text-align: center;
+	background-color: #8f0e20;
 }
