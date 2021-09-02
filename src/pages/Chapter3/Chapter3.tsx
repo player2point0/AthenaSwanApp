@@ -36,7 +36,7 @@ const Chapter3: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 			<SingleColumn
 				addRefsToParent={(refs) => addRefsToParent("chapter3-video", refs)}
 			>
-				<YoutubePlayer url="https://www.youtube.com/embed/S1aYsLs9B8U" />
+				<YoutubePlayer videoId="S1aYsLs9B8U" />
 			</SingleColumn>
 		</>
 	);

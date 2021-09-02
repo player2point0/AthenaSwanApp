@@ -58,7 +58,7 @@ const Chapter4: FC<ChapterWithFormProps> = ({
 			<SingleColumn
 				addRefsToParent={(refs) => addRefsToParent("chapter4-video", refs)}
 			>
-				<YoutubePlayer url="https://www.youtube.com/embed/vYsXu3ZrYnw" />
+				<YoutubePlayer videoId="vYsXu3ZrYnw" />
 			</SingleColumn>
 			<SingleColumn
 				addRefsToParent={(refs) => addRefsToParent("chapter4-input-text", refs)}

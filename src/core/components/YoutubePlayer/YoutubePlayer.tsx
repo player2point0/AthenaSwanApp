@@ -1,12 +1,14 @@
 import { FC } from "react";
 import { useScreenHeight, useScreenWidth } from "../../hooks/Window";
 import styles from "./YoutubePlayer.module.css";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 type Props = {
-	url: string;
+	videoId: string;
 };
 
-const YoutubePlayer: FC<Props> = ({ url }) => {
+const YoutubePlayer: FC<Props> = ({ videoId }) => {
 	const screenWidth = useScreenWidth();
 	const screenHeight = useScreenHeight();
 
@@ -18,9 +20,21 @@ const YoutubePlayer: FC<Props> = ({ url }) => {
 		playerWidth = Math.floor(playerHeight * (16 / 9));
 	}
 
+	// TODO lazy load videos
+	// https://web.dev/third-party-facades/?utm_source=lighthouse&utm_medium=devtools
+
 	return (
-		<div className={styles.playerContainer}>
-			<iframe
+		<div
+			className={styles.playerContainer}
+			style={{ width: playerWidth, height: playerHeight }}
+		>
+			<LiteYouTubeEmbed
+				id={videoId}
+				title="What’s new in Material Design for the web (Chrome Dev Summit 2019)"
+				announce={""}
+			/>
+
+			{/* <iframe
 				width={playerWidth}
 				height={playerHeight}
 				src={url}
@@ -28,7 +42,7 @@ const YoutubePlayer: FC<Props> = ({ url }) => {
 				frameBorder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				allowFullScreen
-			></iframe>
+			></iframe> */}
 		</div>
 	);
 };
