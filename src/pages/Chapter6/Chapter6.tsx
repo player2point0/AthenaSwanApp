@@ -86,9 +86,11 @@ const Chapter6: FC<Chapter6Props> = ({
 				questionText="I have a strong belief that I can help tackle gender bias in my professional field."
 			/>
 			{formHasErrors ? (
-				<h1 className={styles.formErrorMessage}>
-					Please answer all questions.
-				</h1>
+				<TextBox>
+					<h1 className={styles.formErrorMessage}>
+						Please answer all questions.
+					</h1>
+				</TextBox>
 			) : (
 				<StyledButton text="Submit" onClick={submitForm} />
 			)}

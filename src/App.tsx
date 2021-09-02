@@ -16,6 +16,8 @@ import "./index.css";
 
 const axios = require("axios");
 
+// TODO add in accessibility support e.g. buttons alt and mobile scroll button
+
 const App = () => {
 	const screenWidth = useScreenWidth();
 	const isMobile = screenWidth <= 768;

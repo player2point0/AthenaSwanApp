@@ -20,9 +20,6 @@ const YoutubePlayer: FC<Props> = ({ videoId }) => {
 		playerWidth = Math.floor(playerHeight * (16 / 9));
 	}
 
-	// TODO lazy load videos
-	// https://web.dev/third-party-facades/?utm_source=lighthouse&utm_medium=devtools
-
 	return (
 		<div
 			className={styles.playerContainer}
