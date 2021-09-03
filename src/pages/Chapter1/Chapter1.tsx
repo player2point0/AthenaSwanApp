@@ -4,8 +4,8 @@ import PictureFrame from "../../core/components/PictureFrame";
 import TextBox from "../../core/components/TextBox";
 import Title from "../../core/components/Title";
 import team from "./team.jpg";
-import QUBLogo from "./qub.jpg";
-import UKRILogo from "./ukri.jpg";
+import QUBLogo from "./qub_compressed.png";
+import UKRILogo from "./ukri_compressed.png";
 import { ChapterProps } from "../../core/types";
 
 const Chapter1: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {

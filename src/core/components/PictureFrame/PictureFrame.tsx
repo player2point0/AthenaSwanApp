@@ -6,8 +6,7 @@ type Props = {
 	altText: string;
 };
 
-// TODO serve up a different sized image for mobile
-// https://web.dev/uses-responsive-images/?utm_source=lighthouse&utm_medium=devtools
+// TODO https://developers.google.com/web/fundamentals/design-and-ux/responsive/images
 const PictureFrame: FC<Props> = ({ imgSrc, altText }) => {
 	return <img className={styles.pictureFrame} src={imgSrc} alt={altText} />;
 };
