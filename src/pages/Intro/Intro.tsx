@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import SingleColumn from "../../core/components/SingleColumn";
 import StyledButton from "../../core/components/StyledButton";
@@ -45,7 +45,7 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 
 	// TOOO test this
 	const displayInstallPrompt =
-		isStandalone && isInstallPromptSupported && isMobile;
+		!isStandalone && isInstallPromptSupported && isMobile;
 
 	return (
 		<>
