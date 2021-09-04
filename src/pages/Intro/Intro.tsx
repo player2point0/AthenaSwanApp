@@ -43,6 +43,11 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 		</TextBox>
 	);
 
+	isMobile = true;
+
+	console.log("standalone " + isStandalone);
+	console.log("supported " + isInstallPromptSupported);
+
 	// TOOO test this
 	const displayInstallPrompt =
 		!isStandalone && isInstallPromptSupported && isMobile;
