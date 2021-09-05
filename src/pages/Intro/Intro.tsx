@@ -63,7 +63,7 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 
 	return (
 		<>
-			{displayIosPrompt && <PWAPrompt debug delay={0} />}
+			{displayIosPrompt && <PWAPrompt delay={0} />}
 			{displayInstallPrompt && (
 				<>
 					<SingleColumn
