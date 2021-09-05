@@ -1,13 +1,23 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import DoubleColumn from "../../core/components/DoubleColumn";
 import SingleColumn from "../../core/components/SingleColumn";
 import StyledButton from "../../core/components/StyledButton";
 import TextBox from "../../core/components/TextBox";
 import { ChapterProps } from "../../core/types";
 import usePWA from "react-pwa-install-prompt";
+// @ts-ignore
+import PWAPrompt from "react-ios-pwa-prompt";
 
 const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 	const { isStandalone, isInstallPromptSupported, promptInstall } = usePWA();
+	const [displayInstallPrompt, setDisplayInstallPrompt] = useState(
+		!isStandalone && isInstallPromptSupported && isMobile
+	);
+	const isIos = () => {
+		const userAgent = window.navigator.userAgent.toLowerCase();
+		return /iphone|ipad|ipod/.test(userAgent);
+	};
+	const [displayIosPrompt, setDisplayIosPrompt] = useState(false);
 
 	const overview = (
 		<>
@@ -43,29 +53,31 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 		</TextBox>
 	);
 
-	isMobile = true;
+	const install = () => {
+		if (isIos()) {
+			setDisplayIosPrompt(true);
+		} else promptInstall();
 
-	console.log("standalone " + isStandalone);
-	console.log("supported " + isInstallPromptSupported);
-
-	// TOOO test this
-	const displayInstallPrompt =
-		!isStandalone && isInstallPromptSupported && isMobile;
+		setDisplayInstallPrompt(false);
+	};
 
 	return (
 		<>
+			{displayIosPrompt && <PWAPrompt debug delay={0} />}
 			{displayInstallPrompt && (
-				<SingleColumn
-					addRefsToParent={(refs) => addRefsToParent("intro", refs)}
-				>
-					<TextBox>
-						<p>
-							Click the button below to install this online resource to your
-							home screen for future easy access
-						</p>
-					</TextBox>
-					<StyledButton text="install" onClick={promptInstall} />
-				</SingleColumn>
+				<>
+					<SingleColumn
+						addRefsToParent={(refs) => addRefsToParent("intro", refs)}
+					>
+						<TextBox>
+							<p>
+								Click the button below to install this online resource to your
+								home screen for future easy access
+							</p>
+						</TextBox>
+						<StyledButton text="install" onClick={install} />
+					</SingleColumn>
+				</>
 			)}
 
 			<DoubleColumn
