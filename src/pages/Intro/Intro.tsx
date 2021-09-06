@@ -67,12 +67,12 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 			{displayInstallPrompt && (
 				<>
 					<SingleColumn
-						addRefsToParent={(refs) => addRefsToParent("intro", refs)}
+						addRefsToParent={(refs) => addRefsToParent("intro-install", refs)}
 					>
 						<TextBox>
 							<p>
 								Click the button below to install this online resource to your
-								home screen for future easy access
+								home screen for future easy access.
 							</p>
 						</TextBox>
 						<StyledButton text="install" onClick={install} />
@@ -81,7 +81,7 @@ const Intro: FC<ChapterProps> = ({ addRefsToParent, isMobile }) => {
 			)}
 
 			<DoubleColumn
-				addRefsToParent={(refs) => addRefsToParent("intro", refs)}
+				addRefsToParent={(refs) => addRefsToParent("intro-description", refs)}
 				isMobile={isMobile}
 				leftElement={overview}
 				rightElement={technicalInfo}

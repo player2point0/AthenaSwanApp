@@ -13,10 +13,9 @@ import { UserResponseFormFields } from "./core/types";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
+import GAController from "./core/components/GAController";
 
 const axios = require("axios");
-
-// TODO add in accessibility support e.g. buttons alt and mobile scroll button
 
 const App = () => {
 	const screenWidth = useScreenWidth();
@@ -66,6 +65,7 @@ const App = () => {
 		new Map<string, RefObject<HTMLBodyElement>>()
 	);
 
+	// TODo fix scroll when install intro is displayed
 	const scrollToNextSection = () => {
 		//getBoundingClientRect is relative to viewport
 		const refs = Array.from(sectionRefs.values());
@@ -147,6 +147,7 @@ const App = () => {
 		<>
 			<ToastContainer />
 			<ScrollButton isMobile={isMobile} onClick={scrollToNextSection} />
+			<GAController />
 			<Intro isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter1 isMobile={isMobile} addRefsToParent={addRefsToParent} />
 			<Chapter2 isMobile={isMobile} addRefsToParent={addRefsToParent} />
