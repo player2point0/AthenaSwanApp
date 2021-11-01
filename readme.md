@@ -12,7 +12,7 @@ In `App.tsx` a list of refs for each section is stored, a callback `addRefsToPar
 
 <h2>Questionnaire</h2>
 
-A Google form is used to store responses to the free text perspective question as well as the likert scale questions at the end. The reason for this is to get around some of the difficulties that come from embedding a large form and to allow the form to be split into two different sections.
+A Google form is used to store responses to the free text perspective question as well as the likert scale questions at the end. The reason for this is to get around some of the difficulties that come from embedding a large form and to allow the form to be split into two different sections. https://docs.google.com/forms/d/e/1FAIpQLSfJlujD-0r89wk0rGvxlsifMcHCuV77n-0wNkGzGXwqi2y_5g/viewform?usp=sf_link
 
 The form state is stored in `App.tsx` which uses `react-hook-form` and passes down a callback `register` to connect the `LikertScaleInput` and `TextBox` components. Submitting the form happens in `submit` and maps the form data to an input that Google Forms expects, for more info see https://theconfuzedsourcecode.wordpress.com/2019/11/11/you-may-restfully-submit-to-your-google-forms/
 
