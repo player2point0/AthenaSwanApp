@@ -122,7 +122,7 @@ const App = () => {
 		});
 	};
 
-	useEffect(() => {
+	const setSectionBackgroundColors = () => {
 		const refs = Array.from(sectionRefs.values());
 
 		const sortedSections = refs.sort((a, b) => {
@@ -141,6 +141,10 @@ const App = () => {
 				"background-color:#D6000D"
 			);
 		}
+	};
+
+	useEffect(() => {
+		setSectionBackgroundColors();
 	}, [sectionRefs.size, isMobile]);
 
 	return (

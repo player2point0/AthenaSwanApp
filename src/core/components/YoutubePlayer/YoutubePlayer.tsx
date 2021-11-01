@@ -25,11 +25,7 @@ const YoutubePlayer: FC<Props> = ({ videoId }) => {
 			className={styles.playerContainer}
 			style={{ width: playerWidth, height: playerHeight }}
 		>
-			<LiteYouTubeEmbed
-				id={videoId}
-				title="What’s new in Material Design for the web (Chrome Dev Summit 2019)"
-				announce={""}
-			/>
+			<LiteYouTubeEmbed id={videoId} title="" announce={""} />
 
 			{/* <iframe
 				width={playerWidth}
